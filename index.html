@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>Dom Events</header>
+    <button onclick="console.log('Hello')">Hello</button>
+    <button onclick="console.log(45)">Click Me</button>
+    <br />
+    <!-- system 1 -->
+    <button onclick="document.body.style.backgroundColor='yellow'">
+      make yellow
+    </button>
+    <!-- system 3 -->
+    <button id="makeBlue">make blue</button>
+    <!-- system 2 -->
+    <button onclick=" makeRed()">make red</button>
+    <!-- system 4  -->
+    <button id="makeGreen">make green</button>
+    <!-- system 5  -->
+    <button id="makeOrange">Make Orange</button>
+    <!-- system 6 -->
+    <button id="makePurple">Make Purple</button>
+    <!-- ststem 7  -->
+    <button id="makeGray">Make Gray</button>
+    <script>
+      // system 2
+      function makeRed() {
+        document.body.style.backgroundColor = "red";
+      }
+      // system 3
+      const blue = document.getElementById("makeBlue");
+      blue.onclick = makeBlue;
+
+      function makeBlue() {
+        document.body.style.backgroundColor = "blue";
+      }
+      // system 4
+      const green = document.getElementById("makeGreen");
+      green.onclick = function makeGreen() {
+        document.body.style.backgroundColor = "green";
+      };
+      // system 5
+      const orange = document.getElementById("makeOrange");
+      orange.addEventListener("click", makeOrange);
+
+      function makeOrange() {
+        document.body.style.backgroundColor = "orange";
+      }
+      // system 6
+      const makePurple = document.getElementById("makePurple");
+      makePurple.addEventListener("click", function () {
+        document.body.style.backgroundColor = "purple";
+      });
+      // system 7
+      const makeGray = document
+        .getElementById("makeGray")
+        .addEventListener("click", function () {
+          document.body.style.backgroundColor = "gray";
+        });
+    </script>
+  </body>
+</html>
